@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Q-Bee Travel - Agen Travel terpercaya untuk perjalanan bisnis, study tour, dan liburan Anda."
+    />
+    <meta
+      name="keywords"
+      content="Travel, Tour, Wisata, Study Tour, Holiday, Q-Bee Travel"
+    />
+    <title>Katalog Travel</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        color: #333;
+        line-height: 1.6;
+        overflow: -moz-hidden-unscrollable;
+        overflow-y: scroll; /* Tetap bisa scroll vertikal */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      body::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+      }
+
+      header {
+        background-color: #f6ac1f;
+        color: white;
+        text-align: center;
+        padding: 1.5rem 1rem 5rem 1rem;
+        position: relative;
+        z-index: -1;
+      }
+      .container {
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-top: -3rem;
+      }
+
+      .search-bar {
+        display: flex;
+        margin: 1.5rem 0;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-bar input {
+        flex: 1;
+        padding: 0.8rem;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+      }
+
+      .search-bar button {
+        background-color: #ef4a23;
+        color: white;
+        border: none;
+        padding: 0 1.2rem;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .categories {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+        scrollbar-width: none;
+      }
+
+      .categories::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category {
+        flex: 0 0 auto;
+        padding: 0.5rem 1rem;
+        margin-right: 0.5rem;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        font-size: 0.9rem;
+        white-space: nowrap;
+        cursor: pointer;
+      }
+
+      .category.active {
+        background-color: #f6ac1f;
+        color: white;
+      }
+
+      .destination-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .destination-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        cursor: pointer;
+      }
+
+      .destination-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card-img {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card-img img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 1rem;
+      }
+
+      .card-title {
+        font-size: 1rem;
+        font-weight: bold;
+        margin: 0.2rem auto;
+      }
+
+      small {
+        color: #f6ac1f;
+      }
+
+      .card-desc {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .card-rating {
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+      }
+
+      .star {
+        color: #ffaa00;
+        margin-right: 0.2rem;
+      }
+
+      .book-now {
+        display: block;
+        text-align: center;
+        background-color: #ef4a23;
+        color: white;
+        padding: 0.7rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 1rem;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .feature {
+        background-color: white;
+        border-radius: 10px;
+        padding: 1.2rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: #1a73e8;
+      }
+
+      .feature-title {
+        font-weight: bold;
+        margin-bottom: 0.3rem;
+      }
+
+      .feature-desc {
+        font-size: 0.8rem;
+        color: #666;
+      }
+
+      .promo-banner {
+        background-color: #ff6b6b;
+        color: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .promo-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      .promo-code {
+        background-color: white;
+        color: #ff6b6b;
+        padding: 0.3rem 0.8rem;
+        border-radius: 5px;
+        font-weight: bold;
+        display: inline-block;
+        margin: 0.5rem 0;
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem 1rem;
+        margin-top: 2rem;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+      }
+
+      .footer-link {
+        color: white;
+        text-decoration: none;
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .social-links {
+        margin: 1rem 0;
+      }
+
+      .social-icon {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 0.5rem;
+        text-decoration: none;
+      }
+
+      .copyright {
+        font-size: 0.8rem;
+        opacity: 0.7;
+        margin-top: 1rem;
+      }
+
+      .floating-button {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        background-color: #25d366;
+        color: white;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 100;
+        text-decoration: none;
+        font-size: 1.5rem;
+      }
+
+      .no-results {
+        text-align: center;
+        padding: 2rem;
+        background-color: white;
+        border-radius: 10px;
+        margin: 1rem 0;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .about-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        min-width: 100px;
+        background-color: #f5f8ff;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-number {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #f6ac1f;
+        margin-bottom: 0.3rem;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+        color: #666;
+        text-align: center;
+      }
+
+      .about-certifications {
+        background-color: #f5f8ff;
+        border-left: 4px solid #ef4a23;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .about-certifications p {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      .logo img {
+        max-width: 100%; /* Membuat logo tidak lebih besar dari container */
+        height: auto; /* Menjaga aspek rasio */
+        display: block;
+        margin: 0 auto;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.85);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        position: relative;
+        background-color: white;
+        margin: 4% auto;
+        padding: 15px;
+        width: 90%;
+        max-width: 1200px;
+        max-height: 90vh;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .close-modal {
+        color: #aaa;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10;
+      }
+
+      .close-modal:hover,
+      .close-modal:focus {
+        color: #333;
+      }
+
+      .modal-images {
+        display: flex;
+        gap: 15px;
+        height: calc(90vh - 60px);
+        overflow: hidden;
+      }
+
+      .modal-images.single-image {
+        flex-direction: column;
+      }
+
+      .modal-images.single-image img {
+        width: 100%;
+        height: calc(90vh - 60px);
+        object-fit: contain;
+        border-radius: 5px;
+      }
+
+      .modal-images.dual-image {
+        display: flex;
+        flex-direction: column; /* Tata letak vertikal */
+        align-items: center; /* Pusatkan horizontal */
+        justify-content: center; /* Pusatkan vertikal */
+        height: 100vh; /* Pastikan modal memiliki tinggi penuh layar */
+        text-align: center;
+      }
+
+      .modal-images.dual-image img {
+        width: calc(50% - 8px);
+        height: calc(90vh - 60px);
+        object-fit: contain;
+        border-radius: 5px;
+        max-width: 100%; /* Pastikan gambar tidak lebih besar dari parent */
+        margin-bottom: 10px; /* Beri jarak antar gambar */
+      }
+      /* Pointer cursor untuk card */
+      .destination-card {
+        cursor: pointer;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .social-icons a {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 24px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .social-icons .instagram {
+        background: linear-gradient(
+          45deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+        color: white;
+      }
+
+      .social-icons .whatsapp {
+        background-color: #25d366;
+        color: white;
+      }
+
+      .social-icons a:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (min-width: 768px) {
+        .destination-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .about-stats {
+          gap: 0.5rem;
+        }
+
+        .stat-item {
+          padding: 0.8rem;
+          min-width: calc(50% - 0.5rem);
+        }
+
+        .stat-number {
+          font-size: 1.5rem;
+        }
+
+        .stat-label {
+          font-size: 0.7rem;
+        }
+
+        .modal-images.dual-image {
+          flex-direction: row;
+        }
+
+        .modal-images.dual-image img {
+          width: 100%;
+          height: calc((90vh - 75px) / 2);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .container {
+          max-width: 960px;
+          margin-top: -3rem;
+          margin-right: auto;
+          margin-bottom: 3rem;
+          margin-left: auto;
+        }
+
+        .destination-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .features {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .modal-content {
+          max-height: 85vh;
+        }
+
+        #modalImage1,
+        #modalImage2 {
+          height: calc(85vh - 60px);
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .modal-content {
+          max-height: 85vh;
+        }
+
+        .modal-images.single-image img,
+        .modal-images.dual-image img {
+          height: calc(85vh - 60px);
+        }
+
+        .modal-images.dual-image img {
+          height: calc(85vh - 60px);
+        }
+
+        @media (max-width: 767px) {
+          .modal-images.dual-image img {
+            height: calc((85vh - 75px) / 2);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="img/logo.png" alt="TravelKu Logo" />
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">📍</div>
+          <div class="feature-title">Lokasi Strategis</div>
+          <div class="feature-desc">
+            Berada di pusat kota untuk kemudahan akses.
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">👨‍💼</div>
+          <div class="feature-title">Tim Profesional & Ramah</div>
+          <div class="feature-desc">
+            Staff berpengalaman, menyenangkan, dan terlatih.
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🤝</div>
+          <div class="feature-title">Kemitraan Kuat</div>
+          <div class="feature-desc">
+            Hubungan baik dengan maskapai & akomodasi terbaik.
+          </div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💰</div>
+          <div class="feature-title">Perjalanan Fleksibel & Terjangkau</div>
+          <div class="feature-desc">
+            Menyesuaikan perjalanan dengan anggaran Anda.
+          </div>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Cari destinasi impian Anda..."
+        />
+        <button id="searchButton">Cari</button>
+      </div>
+
+      <div class="categories">
+        <div class="category active" data-category="all">Semua</div>
+        <div class="category" data-category="corporate">Corporate</div>
+        <div class="category" data-category="gtc">Goes To Campus</div>
+        <div class="category" data-category="studytour">Study Tour</div>
+        <div class="category" data-category="holiday">Holiday</div>
+        <div class="category" data-category="travel">Travel</div>
+      </div>
+
+      <h2 style="margin-bottom: 1rem">Destinasi Populer</h2>
+
+      <div id="noResults" class="no-results hidden">
+        <p>Tidak ada hasil yang ditemukan. Silakan coba kata kunci lain.</p>
+      </div>
+
+      <div class="destination-grid" id="destinationGrid">
+        <div class="destination-card" data-categories="corporate">
+          <div class="card-img">
+            <img src="./img/corporate-pangalengan-p2h1m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Travel To Pangalengan</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="gtc,studytour">
+          <div class="card-img">
+            <img src="./img/goestocampus-jogja-3h2m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Study Tour To Jogja</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="gtc,studytour">
+          <div class="card-img">
+            <img src="./img/goestocampus-malangjogja-4h3m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Study Tour To Malang & Jogja</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="holiday">
+          <div class="card-img">
+            <img src="./img/holiday-jogja-1m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Holiday To Jogja</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="holiday">
+          <div class="card-img">
+            <img src="./img/holiday-jogja-p1-3h1m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              Holiday To Jogja - <small>Paket 1</small>
+            </div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="holiday">
+          <div class="card-img">
+            <img src="./img/holiday-jogja-p2-3h1m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              Holiday To Jogja - <small>Paket 2</small>
+            </div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="holiday">
+          <div class="card-img">
+            <img src="./img/holiday-jogja-p3-3h1m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              Holiday To Jogja - <small>Paket 3</small>
+            </div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="studytour">
+          <div class="card-img">
+            <img src="./img/studytour-bandung-p2h1m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Study Tour To Bandung</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="studytour">
+          <div class="card-img">
+            <img
+              src="./img/studytour-lampungtobandung-p4h1m.jpg"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Study Tour Lampung To Bandung</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="studytour">
+          <div class="card-img">
+            <img
+              src="./img/studytour-lampungtojakartabandungbogor-p1-4h3m.jpg"
+            />
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              Study Tour Lampung To Jakarta, Bandung, Bogor
+              <small>Paket 1</small>
+            </div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="studytour">
+          <div class="card-img">
+            <img
+              src="./img/studytour-lampungtojakartabandungbogor-p2-4h3m.jpg"
+            />
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              Study Tour Lampung To Jakarta, Bandung, Bogor
+              <small>Paket 2</small>
+            </div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="studytour">
+          <div class="card-img">
+            <img
+              src="./img/studytour-lampungtojakartabandungbogor-p4h2m.jpg"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              Study Tour Lampung To Jakarta, Bandung, Bogor
+              <small>Paket 3</small>
+            </div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="studytour">
+          <div class="card-img">
+            <img
+              src="./img/studytour-lampungtobogor-p4h1m.jpg"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Study Tour Lampung To Bogor</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="studytour">
+          <div class="card-img">
+            <img
+              src="./img/studytour-lampungtojogjabandung.jpg"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Study Tour Lampung To Jogja, Bandung</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="studytour">
+          <div class="card-img">
+            <img
+              src="./img/studytour-lampungtojogjabandungbogor.jpg"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              Study Tour Lampung To Jogja, Bandung, Bogor
+            </div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="travel">
+          <div class="card-img">
+            <img src="./img/travel-bali-2m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Travel To Bali</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="travel">
+          <div class="card-img">
+            <img src="./img/travel-bali-p1-3h2m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              Travel To Bali - <small>Paket 1</small>
+            </div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="travel">
+          <div class="card-img">
+            <img src="./img/travel-bali-p2-3h2m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              Travel To Bali - <small>Paket 2</small>
+            </div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+
+        <div class="destination-card" data-categories="travel">
+          <div class="card-img">
+            <img src="./img/travel-bandung-1m.jpg" loading="lazy" />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Travel To Bandung</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+        <div class="destination-card" data-categories="travel">
+          <div class="card-img">
+            <img
+              src="./img/goestocampus-semarangjogjamalang-5h4m-1.jpg"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Goes To Campus Semarang, Jogja, Malang</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+        <div class="destination-card" data-categories="travel">
+          <div class="card-img">
+            <img
+              src="./img/studytour-balimalangjogja-p7h6m-1.jpg"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-content">
+            <div class="card-title">Study Tour To Bali, Malang, Jogja</div>
+            <a href="#" class="book-now">Pesan Sekarang</a>
+          </div>
+        </div>
+      </div>
+      <div class="about-us" id="about-us">
+        <h2>Tentang Kami</h2>
+        <div class="about-us-content">
+          <div
+            class="about-us-image"
+            style="
+              background-image: url('./img/corporate-pangalengan-p2h1m.jpg');
+            "
+          ></div>
+          <div class="about-us-text">
+            <p>
+              CV Humeera Marga, atau lebih dikenal dengan Q-Bee Travel And Tours
+              adalah salah satu Travel Agent moderndi Indonesia yang berdiri
+              sejak tahun 2024. Huruf "Q" Merupakan kata lain dari Queen (Ratu)
+              sedangkan Bee Merupakan lebah, Maksud dari Penamaan QBee ialah
+              sosok Ratu Lebah yang tugasnya ialah membuat para lebah menjadi
+              solid dalam suatu koloni untuk menghasilkan sebuah madu yang
+              terbaik, dan madu tersebut dapat bermanfaat bagi yang
+              mengkonsumsinya. Sehingga Q-Bee Travel hadir Sebagai perusahaan
+              yang bergerak dalam bidang Travel & Tours berkomitmen memberikan
+              hasil yang bermanfaat bagi para pelaku pariwisata dan konsumen.
+            </p>
+
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Tahun Pengalaman</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">50K+</span>
+                <span class="stat-label">Pelanggan Puas</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Destinasi</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Layanan Pelanggan</span>
+              </div>
+            </div>
+
+            <p>
+              Q-Bee Travel berkomitmen mempertahankan posisi dalam salah satu
+              pilihan agent travel pilihan utama di lingkungan perusahaan,
+              personal dan kelembagaan dalam pengelolaan perjalanan seperti
+              perjalanan Study Tours, Pemesanan tiket Pesawat, Kereta Api, Kapal
+              Laut, Employe Gathring, Private Tours, MICE, serta insentif
+              kegiatan Tour lainnya dengan biaya yang dapat disesuaikan
+              dengan anggaran.
+            </p>
+
+            <div class="about-certifications">
+              <p>
+                <strong>Tersertifikasi & Terpercaya:</strong> Q-Bee Travel adalah
+                anggota resmi ASITA (Association of The Indonesian Tours &
+                Travel Agencies) dan telah mendapatkan sertifikasi dari
+                Kementerian Pariwisata Republik Indonesia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-images">
+          <img id="modalImage1" src="" alt="Detail Gambar 1" />
+          <img id="modalImage2" src="" alt="Detail Gambar 2" />
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="logo">
+        <img src="img/logo.png" alt="TravelKu Logo" />
+      </div>
+
+      <div class="social-icons">
+        <a
+          href="https://www.instagram.com/qbeetravel?igsh=MTl3eHVnM3JjNmc4cg=="
+          target="_blank"
+          class="instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/6281234567890" target="_blank" class="whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+
+      <div class="copyright">© 2025 Q-BEE Travel. Hak Cipta Dilindungi.</div>
+    </footer>
+
+    <a href="#" class="floating-button">💬</a>
+
+    <script>
+      // Data untuk pencarian
+      const destinations = [];
+
+      // Populate destinations array from actual DOM elements
+      document.querySelectorAll(".destination-card").forEach((card) => {
+        const title = card.querySelector(".card-title").textContent.trim();
+        const categoriesAttr = card.getAttribute("data-categories");
+        const categories = categoriesAttr ? categoriesAttr.split(",") : [];
+
+        destinations.push({
+          title: title,
+          categories: categories,
+          element: card,
+        });
+      });
+
+      // Fungsi pencarian
+      function search() {
+        const searchValue = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const noResultsElement = document.getElementById("noResults");
+        let hasResults = false;
+
+        destinations.forEach((dest) => {
+          const isMatch = dest.title.toLowerCase().includes(searchValue);
+          if (isMatch) {
+            dest.element.classList.remove("hidden");
+            hasResults = true;
+          } else {
+            dest.element.classList.add("hidden");
+          }
+        });
+
+        if (!hasResults) {
+          noResultsElement.classList.remove("hidden");
+        } else {
+          noResultsElement.classList.add("hidden");
+        }
+      }
+
+      function filterByCategory(category) {
+        const noResultsElement = document.getElementById("noResults");
+        let hasResults = false;
+
+        destinations.forEach((dest) => {
+          if (category === "all" || dest.categories.includes(category)) {
+            dest.element.classList.remove("hidden");
+            hasResults = true;
+          } else {
+            dest.element.classList.add("hidden");
+          }
+        });
+
+        if (!hasResults) {
+          noResultsElement.classList.remove("hidden");
+        } else {
+          noResultsElement.classList.add("hidden");
+        }
+      }
+
+      document.getElementById("searchButton").addEventListener("click", search);
+      document
+        .getElementById("searchInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            search();
+          }
+        });
+
+      document.querySelectorAll(".category").forEach((category) => {
+        category.addEventListener("click", function () {
+          document.querySelector(".category.active").classList.remove("active");
+          this.classList.add("active");
+
+          const categoryName = this.getAttribute("data-category");
+          filterByCategory(categoryName);
+        });
+      });
+
+      document.querySelectorAll(".book-now").forEach((button) => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault(); // Mencegah navigasi default
+
+          const destinationCard = this.closest(".destination-card");
+          const destinationTitle = destinationCard
+            .querySelector(".card-title")
+            .textContent.trim();
+          const imageUrl = destinationCard.querySelector("img").src;
+
+          // Nomor WhatsApp tujuan (ganti dengan nomor yang benar)
+          const phoneNumber = "6282121512406"; // Format internasional tanpa "+"
+
+          // Teks pesan otomatis
+          const message = encodeURIComponent(
+            `Halo, saya ingin bertanya tanya paket: ${destinationTitle}`
+          );
+
+          // Redirect ke WhatsApp
+          const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+          window.open(whatsappUrl, "_blank"); // Buka di tab baru
+        });
+      });
+
+      document
+        .querySelector(".floating-button")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          window.open("https://wa.me/6282121512406", "_blank"); // Ganti dengan nomor Anda
+        });
+
+      // Get modal elements
+      const modal = document.getElementById("imageModal");
+      const modalImagesContainer = document.querySelector(".modal-images");
+      const modalImg1 = document.getElementById("modalImage1");
+      const modalImg2 = document.getElementById("modalImage2");
+      const closeModal = document.getElementsByClassName("close-modal")[0];
+
+      // Define which cards should have dual-image modals
+      const dualImageDestinations = [
+        "Goes To Campus Semarang, Jogja, Malang",
+        "Study Tour To Bali, Malang, Jogja",
+      ];
+
+      // Alternative images for the second slot in dual-image modals
+      const alternativeImages = {
+        "Goes To Campus Semarang, Jogja, Malang":
+          "./img/goestocampus-semarangjogjamalang-5h4m-2.jpg",
+        "Study Tour To Bali, Malang, Jogja":
+          "./img/studytour-balimalangjogja-p7h6m-2.jpg",
+      };
+
+      // Add click event to destination cards
+      document.querySelectorAll(".destination-card").forEach((card) => {
+        card.addEventListener("click", function (e) {
+          // Don't show modal if clicking on the "Book Now" button
+          if (
+            !e.target.classList.contains("book-now") &&
+            !e.target.closest(".book-now")
+          ) {
+            const title = this.querySelector(".card-title").textContent.trim();
+            const imgSrc = this.querySelector("img").src;
+
+            // Check if this destination should have dual images
+            const isDualImage = dualImageDestinations.some((dest) =>
+              title.includes(dest)
+            );
+
+            if (isDualImage) {
+              // Setup for dual image modal
+              modalImagesContainer.classList.remove("single-image");
+              modalImagesContainer.classList.add("dual-image");
+
+              // Set first image (from card)
+              modalImg1.src = imgSrc;
+              modalImg1.style.display = "block";
+
+              // Set second image (alternative)
+              let alternativeImage = null;
+              for (const [key, value] of Object.entries(alternativeImages)) {
+                if (title.includes(key)) {
+                  alternativeImage = value;
+                  break;
+                }
+              }
+
+              if (alternativeImage) {
+                modalImg2.src = alternativeImage;
+              } else {
+                // If no alternative image found, use a different package image
+                const packages = Object.values(alternativeImages);
+                modalImg2.src =
+                  packages[Math.floor(Math.random() * packages.length)];
+              }
+              modalImg2.style.display = "block";
+            } else {
+              // Setup for single image modal
+              modalImagesContainer.classList.remove("dual-image");
+              modalImagesContainer.classList.add("single-image");
+
+              // Set the single image
+              modalImg1.src = imgSrc;
+              modalImg1.style.display = "block";
+              modalImg2.style.display = "none";
+            }
+
+            // Show the modal
+            modal.style.display = "block";
+
+            // Adjust body to prevent scrolling while modal is open
+            document.body.style.overflow = "hidden";
+          }
+        });
+      });
+
+      // Close modal when X is clicked
+      closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Restore scrolling
+      });
+
+      // Close modal when clicking outside the modal content
+      window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto"; // Restore scrolling
+        }
+      });
+
+      // Close modal with Escape key
+      window.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && modal.style.display === "block") {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto"; // Restore scrolling
+        }
+      });
+    </script>
+  </body>
+</html>
