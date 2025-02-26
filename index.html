@@ -617,10 +617,7 @@
       <div class="categories">
         <div class="category active" data-category="all">Semua</div>
         <div class="category" data-category="corporate">Corporate</div>
-        <div class="category" data-category="gtc">Goes To Campus</div>
         <div class="category" data-category="studytour">Study Tour</div>
-        <div class="category" data-category="holiday">Holiday</div>
-        <div class="category" data-category="travel">Travel</div>
       </div>
 
       <h2 style="margin-bottom: 1rem">Destinasi Populer</h2>
@@ -640,7 +637,7 @@
           </div>
         </div>
 
-        <div class="destination-card" data-categories="gtc,studytour">
+        <div class="destination-card" data-categories="studytour">
           <div class="card-img">
             <img src="./img/goestocampus-jogja-3h2m.jpg" loading="lazy" />
           </div>
@@ -650,7 +647,7 @@
           </div>
         </div>
 
-        <div class="destination-card" data-categories="gtc,studytour">
+        <div class="destination-card" data-categories="studytour">
           <div class="card-img">
             <img src="./img/goestocampus-malangjogja-4h3m.jpg" loading="lazy" />
           </div>
@@ -660,17 +657,7 @@
           </div>
         </div>
 
-        <div class="destination-card" data-categories="holiday">
-          <div class="card-img">
-            <img src="./img/holiday-jogja-1m.jpg" loading="lazy" />
-          </div>
-          <div class="card-content">
-            <div class="card-title">Holiday To Jogja</div>
-            <a href="#" class="book-now">Pesan Sekarang</a>
-          </div>
-        </div>
-
-        <div class="destination-card" data-categories="holiday">
+        <div class="destination-card" data-categories="corporate">
           <div class="card-img">
             <img src="./img/holiday-jogja-p1-3h1m.jpg" loading="lazy" />
           </div>
@@ -682,7 +669,7 @@
           </div>
         </div>
 
-        <div class="destination-card" data-categories="holiday">
+        <div class="destination-card" data-categories="corporate">
           <div class="card-img">
             <img src="./img/holiday-jogja-p2-3h1m.jpg" loading="lazy" />
           </div>
@@ -694,7 +681,7 @@
           </div>
         </div>
 
-        <div class="destination-card" data-categories="holiday">
+        <div class="destination-card" data-categories="corporate">
           <div class="card-img">
             <img src="./img/holiday-jogja-p3-3h1m.jpg" loading="lazy" />
           </div>
@@ -816,17 +803,7 @@
           </div>
         </div>
 
-        <div class="destination-card" data-categories="travel">
-          <div class="card-img">
-            <img src="./img/travel-bali-2m.jpg" loading="lazy" />
-          </div>
-          <div class="card-content">
-            <div class="card-title">Travel To Bali</div>
-            <a href="#" class="book-now">Pesan Sekarang</a>
-          </div>
-        </div>
-
-        <div class="destination-card" data-categories="travel">
+        <div class="destination-card" data-categories="corporate">
           <div class="card-img">
             <img src="./img/travel-bali-p1-3h2m.jpg" loading="lazy" />
           </div>
@@ -838,7 +815,7 @@
           </div>
         </div>
 
-        <div class="destination-card" data-categories="travel">
+        <div class="destination-card" data-categories="corporate">
           <div class="card-img">
             <img src="./img/travel-bali-p2-3h2m.jpg" loading="lazy" />
           </div>
@@ -850,16 +827,7 @@
           </div>
         </div>
 
-        <div class="destination-card" data-categories="travel">
-          <div class="card-img">
-            <img src="./img/travel-bandung-1m.jpg" loading="lazy" />
-          </div>
-          <div class="card-content">
-            <div class="card-title">Travel To Bandung</div>
-            <a href="#" class="book-now">Pesan Sekarang</a>
-          </div>
-        </div>
-        <div class="destination-card" data-categories="travel">
+        <div class="destination-card" data-categories="corporate">
           <div class="card-img">
             <img
               src="./img/goestocampus-semarangjogjamalang-5h4m-1.jpg"
@@ -871,7 +839,8 @@
             <a href="#" class="book-now">Pesan Sekarang</a>
           </div>
         </div>
-        <div class="destination-card" data-categories="travel">
+
+        <div class="destination-card" data-categories="corporate">
           <div class="card-img">
             <img
               src="./img/studytour-balimalangjogja-p7h6m-1.jpg"
@@ -1105,6 +1074,12 @@
       const dualImageDestinations = [
         "Goes To Campus Semarang, Jogja, Malang",
         "Study Tour To Bali, Malang, Jogja",
+        "Holiday To Jogja - Paket 1",
+        "Holiday To Jogja - Paket 2",
+        "Holiday To Jogja - Paket 3",
+        "Travel To Pangalengan",
+        "Travel To Bali - Paket 1",
+        "Travel To Bali - Paket 2",
       ];
 
       // Alternative images for the second slot in dual-image modals
@@ -1113,6 +1088,12 @@
           "./img/goestocampus-semarangjogjamalang-5h4m-2.jpg",
         "Study Tour To Bali, Malang, Jogja":
           "./img/studytour-balimalangjogja-p7h6m-2.jpg",
+          "Holiday To Jogja - Paket 1": "./img/holiday-jogja-1m.jpg",
+          "Holiday To Jogja - Paket 2": "./img/holiday-jogja-1m.jpg",
+          "Holiday To Jogja - Paket 3": "./img/holiday-jogja-1m.jpg",
+          "Travel To Pangalengan": "./img/travel-bandung-1m.jpg",
+          "Travel To Bali - Paket 1": "./img/travel-bali-2m.jpg",
+          "Travel To Bali - Paket 2": "./img/travel-bali-2m.jpg",
       };
 
       // Add click event to destination cards
